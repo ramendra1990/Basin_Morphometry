@@ -67,7 +67,6 @@ def StrCount(str):
         
     st_order_column = ar1[:, 0] # Accessing the first column of the array, which stores the GRID_CODE field (Strahler order of the features)
     st_order = np.unique(st_order_column)
-    max_ord = max(st_order)
     
     str_count = {} # Stores the total number of streams for each order
     
@@ -80,12 +79,12 @@ def StrCount(str):
         ar2 = ar1[ar1[:, 0] == j2]
         if j2 == 1:
             str_count[j2] = ar2.shape[0]
-        elif j2 == max_ord:
-            str_count[j2] = 1
         else:
             for j3 in range(ar2.shape[0]):
                 indx = ar1[:, 1] == ar2[j3, 2]
-                if ar1[indx, 0] > j2:
+                if len(ar1[indx]) == 0:
+                    str_count[j2] += 1
+                elif ar1[indx, 0] > j2:
                     str_count[j2] += 1
     
     #-------------------------------------------------------------------------------

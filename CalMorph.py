@@ -41,9 +41,9 @@ def StrCount(str):
     desc = arcpy.Describe(str)
     type_param = desc.dataType
     
-    if type_param != 'FeatureLayer':
+    if type_param != 'FeatureLayer' and type_param != 'ShapeFile':
         print('Please check the type of your parameter param1')
-        raise TypeError('param1 -> Expecting a FeatureLayer')
+        raise TypeError('param1 -> Expecting a FeatureLayer or Shapefile')
         # print('Please check the type of your parameter')
     
     number_of_features = int(arcpy.GetCount_management(str).getOutput(0)) # Get the feature count of the shape file
@@ -138,7 +138,7 @@ def StrLength(str):
     SR = desc.SpatialReference.type
     
     # Checking if the input parameter type is consistent
-    if type_param != 'FeatureLayer':
+    if type_param != 'FeatureLayer' and type_param != 'ShapeFile':
         print('Please check the type of your parameter param1')
         raise TypeError('param1 -> Expecting a FeatureLayer')
     
@@ -216,7 +216,7 @@ def Length_Maxordr(str):
     SR = desc.SpatialReference.type
     
     # Checking if the input parameter type is consistent
-    if type_param != 'FeatureLayer':
+    if type_param != 'FeatureLayer' and type_param != 'ShapeFile':
         print('Please check the type of your parameter param1')
         raise TypeError('param1 -> Expecting a FeatureLayer')
     
@@ -302,22 +302,22 @@ def AreaEst(FlowDir, FlowAcc, StrOrdr, str):
     SR_param4 = desc_param4.SpatialReference.type
     
     type_param1 = desc_param1.dataType
-    if type_param1 != 'RasterLayer':
+    if type_param1 != 'RasterLayer' and type_param1 != 'RasterDataset':
         print('Please check the type of your parameter param1')
         raise TypeError('param1 -> Expecting a Raster Layer')
     
     type_param2 = desc_param2.dataType
-    if type_param2 != 'RasterLayer':
+    if type_param2 != 'RasterLayer' and type_param2 != 'RasterDataset':
         print('Please check the type of your parameter param2')
         raise TypeError('param2 -> Expecting a Raster Layer')
         
     type_param3 = desc_param3.dataType
-    if type_param3 != 'RasterLayer':
+    if type_param3 != 'RasterLayer' and type_param3 != 'RasterDataset':
         print('Please check the type of your parameter param3')
         raise TypeError('param3 -> Expecting a Raster Layer')
         
     type_param4 = desc_param4.dataType
-    if type_param4 != 'FeatureLayer':
+    if type_param4 != 'FeatureLayer' and type_param4 != 'ShapeFile':
         print('Please check the type of your parameter param4')
         raise TypeError('param4 -> Expecting a Feature Layer')
         
@@ -421,22 +421,22 @@ def MorphRatio(FlowDir, FlowAcc, StrOrdr, str):
     SR_param4 = desc_param4.SpatialReference.type
     
     type_param1 = desc_param1.dataType
-    if type_param1 != 'RasterLayer':
+    if type_param1 != 'RasterLayer' and type_param1 != 'RasterDataset':
         print('Please check the type of your parameter param1')
         raise TypeError('param1 -> Expecting a Raster Layer')
     
     type_param2 = desc_param2.dataType
-    if type_param2 != 'RasterLayer':
+    if type_param2 != 'RasterLayer' and type_param2 != 'RasterDataset':
         print('Please check the type of your parameter param2')
         raise TypeError('param2 -> Expecting a Raster Layer')
         
     type_param3 = desc_param3.dataType
-    if type_param3 != 'RasterLayer':
+    if type_param3 != 'RasterLayer' and type_param3 != 'RasterDataset':
         print('Please check the type of your parameter param3')
         raise TypeError('param3 -> Expecting a Raster Layer')
         
     type_param4 = desc_param4.dataType
-    if type_param4 != 'FeatureLayer':
+    if type_param4 != 'FeatureLayer' and type_param4 != 'ShapeFile':
         print('Please check the type of your parameter param4')
         raise TypeError('param4 -> Expecting a Feature Layer')
         

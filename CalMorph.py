@@ -335,7 +335,7 @@ def AreaEst(FlowDir, FlowAcc, StrOrdr, str):
     data_FlowAcc = arcpy.RasterToNumPyArray(FlowAcc)
     
     data_StrOrder = arcpy.RasterToNumPyArray(StrOrdr)
-    data_StrOrder[(data_StrOrder < 1) | (data_StrOrder > 50)] = 0
+    data_StrOrder[(data_StrOrder < 1) | (data_StrOrder > max(str_count.keys()))] = 0
     
     m = data_StrOrder.shape[0]
     n = data_StrOrder.shape[1]
